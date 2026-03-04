@@ -21,7 +21,7 @@ $ npm install @semantic-release/gitlab -D
 
 ## Usage
 
-The plugin can be configured in the [**semantic-release** configuration file](https://github.com/semantic-release/semantic-release/blob/master/docs/usage/configuration.md#configuration):
+The plugin can be configured in the [**semantic-release** configuration file](https://github.com/Unity-Billal-mesloub/semantic-release/blob/main/docs/usage/configuration.md#configuration):
 
 ```json
 {
@@ -113,12 +113,9 @@ If you need to bypass the proxy for some hosts, configure the `NO_PROXY` environ
 
 #### assets
 
-Can be a [glob](https://github.com/isaacs/node-glob#glob-primer) or and `Array` of
-[globs](https://github.com/isaacs/node-glob#glob-primer) and `Object`s with the following properties:
-
 | Property      | Description                                                                                                                                                                                                                                                                                                                                    | Default                              |
 | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
-| `path`        | **Required**, unless `url` is set. A [glob](https://github.com/isaacs/node-glob#glob-primer) to identify the files to upload. Supports [Lodash templating](https://lodash.com/docs#template).                                                                                                                                                  | -                                    |
+| `path`        |                                                                                                                                                   | -                                    |
 | `url`         | Alternative to setting `path` this provides the ability to add links to releases, e.g. URLs to container images. Supports [Lodash templating](https://lodash.com/docs#template).                                                                                                                                                               | -                                    |
 | `label`       | Short description of the file displayed on the GitLab release. Ignored if `path` matches more than one file. Supports [Lodash templating](https://lodash.com/docs#template).                                                                                                                                                                   | File name extracted from the `path`. |
 | `type`        | Asset type displayed on the GitLab release. Can be `runbook`, `package`, `image` and `other` (see official documents on [link types](https://docs.gitlab.com/user/project/releases/release_fields/#link-types)). Supports [Lodash templating](https://lodash.com/docs#template).                                                               | `other`                              |
@@ -127,9 +124,6 @@ Can be a [glob](https://github.com/isaacs/node-glob#glob-primer) or and `Array` 
 | `packageName` | This is only applied if `target` is set to `generic_package`. It defines the package name (`:package_name`) to upload asset file to. More information could be found at [Publish a package](https://docs.gitlab.com/user/packages/generic_packages/#publish-a-package)                                                                         | `release`                            |
 | `status`      | This is only applied, if `target` is set to `generic_package`. The generic package status. Can be `default` and `hidden` (see official documents on [generic packages](https://docs.gitlab.com/user/packages/generic_packages/)).                                                                                                              | `default`                            |
 
-Each entry in the `assets` `Array` is globbed individually. A [glob](https://github.com/isaacs/node-glob#glob-primer)
-can be a `String` (`"dist/**/*.js"` or `"dist/mylib.js"`) or an `Array` of `String`s that will be globbed together
-(`["dist/**", "!**/*.css"]`).
 
 If a directory is configured, all the files under this directory and its children will be included.
 
@@ -194,7 +188,7 @@ The message for the issue content is generated with [Lodash template](https://lo
 | Parameter | Description                                                                                                                                                                                                                                                                                                            |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `branch`  | The branch from which the release had failed.                                                                                                                                                                                                                                                                          |
-| `errors`  | An `Array` of [SemanticReleaseError](https://github.com/semantic-release/error). Each error has the `message`, `code`, `pluginName` and `details` properties.<br>`pluginName` contains the package name of the plugin that threw the error.<br>`details` contains a information about the error formatted in markdown. |
+| `errors`  | An `Array` of [Unity-Billal-mesloub/Error](https://github.com/Unity-Billal-mesloub/error). Each error has the `message`, `code`, `pluginName` and `details` properties.<br>`pluginName` contains the package name of the plugin that threw the error.<br>`details` contains a information about the error formatted in markdown. |
 
 ##### failComment example
 
@@ -236,4 +230,4 @@ If you are using GitLab.com or have upgraded your self-hosted GitLab instance to
 
 #### Why?
 
-In GitLab 14.0, creating a release using the [Tags API](https://docs.gitlab.com/api/tags/) has been removed (see [<span>#</span>290311](https://gitlab.com/gitlab-org/gitlab/-/issues/290311)). This plugin was updated to use the [Releases API](https://docs.gitlab.com/api/releases/#create-a-release) instead in https://github.com/semantic-release/gitlab/pull/184, which is available in version `6.0.7` and beyond.
+In GitLab 14.0, creating a release using the [Tags API](https://docs.gitlab.com/api/tags/) has been removed (see [<span>#</span>290311](https://gitlab.com/gitlab-org/gitlab/-/issues/290311)). This plugin was updated to use the [Releases API](https://docs.gitlab.com/api/releases/#create-a-release) instead in https://github.com/Unity-Billal-mesloub/gitlab/pull/, which is available in version `6.0.7` and beyond.
